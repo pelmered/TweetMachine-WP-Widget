@@ -1,0 +1,96 @@
+/* 
+    Document   : twitter
+    Created on : 2013-jan-25, 13:55:08
+    Author     : Peter Elmered
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+
+.tweetmachine-feed {
+    position: relative;
+    min-height: 180px;
+    overflow: hidden;
+}
+
+.tweetmachine-feed .twitter-placeholder {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    margin: 0 0 0 -40px;
+    display: block;
+    text-align: center;
+    box-shadow: none !important;
+}
+.tweetmachine-feed .tweet {
+   display: block;
+   margin-bottom: 20px;
+   clear: both;
+   position: relative;
+   padding-bottom: 14px;
+}
+.tweetmachine-feed .tweet:before,
+.tweetmachine-feed .tweet:after {
+    content: "";
+    display: table;
+}
+.tweetmachine-feed .tweet:after {
+    clear: both;
+}
+
+.tweetmachine-feed .tweet img.avatar {
+   width: 18%;
+   float: left;
+   padding: 0;
+}
+
+.tweetmachine-feed .tweet-container {
+    width: 75%;
+    float: right;
+   margin: 0;
+}
+.tweetmachine-feed .meta.top {
+   margin: 0;
+   line-height: 1;
+   padding: 0 0 4px 0;
+}
+.tweetmachine-feed .tweet .meta a {
+   line-height: 1;
+}
+/*
+.tweetmachine-feed .tweet p,
+.tweetmachine-feed .tweet .meta a {
+   font-size: 10px;
+   font-weight: bold;
+    text-transform: uppercase;   
+    clear: right;
+}
+*/
+/*
+.tweetmachine-feed .tweet .meta .time {
+    position: absolute;
+    bottom: 0;
+    left: 60px;
+    color: #999;
+    display: block;
+}
+*/
+.tweetmachine-feed .tweet .content {
+   margin: 0px;
+   line-height: 1.2;
+}
+
+.tweetmachine-feed .tweet .meta .username {
+   color: #ca002c;
+   display: inline-block;
+   text-transform: uppercase;
+}
+.tweetmachine-feed .tweet span.time a {
+   color: #999;
+   display: block;
+}
+
+.tweetmachine-feed .no-tweets-notice {
+    margin: 70px 0;
+    text-align: center;
+}
