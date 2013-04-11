@@ -3,7 +3,7 @@ Contributors: pekz0r, ryangiglio
 Tags: twitter, widget, live widget, live tweets, twitter feed, live feed
 Requires at least: 3.5
 Tested up to: 3.5
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,7 +62,7 @@ For latest documentation, see the [jQuery Tweet Machine GitHub page](https://git
 
 == Changelog ==
 
-= 1.0.2 =
+= 1.0.3 =
 * Bugfix release
 * [Bugfix] Debugdata on top of the confuguration page
 * [Bugfix] Various small bugfixes

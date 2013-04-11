@@ -3,7 +3,7 @@
   Plugin Name: TweetMachine for WP
   Plugin URI: http://wordpress.org/extend/plugins/tweetmachine-wp-widget/
   Description: Adds a Live Twitter Widget usning jQuery-tweetMachine
-  Version: 1.0.2
+  Version: 1.0.3
   Author: Peter Elmered
   Author URI: http://elmered.com
   Text Domain: tweetMachine-wp
