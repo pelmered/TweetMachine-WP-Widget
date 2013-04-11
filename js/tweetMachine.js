@@ -156,12 +156,14 @@
 						tweetObj.find('.username')
                             .attr('href', "http://twitter.com/" + tweet.user.screen_name)
                             .attr('target', '_blank')
+                            .attr('title', 'Go to '+tweet.user.screen_name+'\'s profile')
                             .html("" + tweet.user.screen_name);
 
                         // Set the timestamp
 						tweetObj.find('.time')
                             .attr('href', "http://twitter.com/" + tweet.user.screen_name + "/status/" + tweet.id_str)
                             .attr('target', '_blank')
+                            .attr('title', 'Go to Tweet')
                             .html(tweetMachine.relativeTime(tweet.created_at))
                             // Save the created_at time as jQuery data so we can update it later
                             .data('timestamp', tweet.created_at);
@@ -201,11 +203,26 @@
                             }
 
                             // Call your backend script to get JSON back from Twitter
+                            /*
 							$.getJSON(tweetMachine.settings.backendScript, {
 								endpoint: tweetMachine.settings.endpoint,
 								queryParams: queryParams
 							}, function (tweets) {
 								var tweetsDisplayed;
+                                */
+                            // Call your backend script to get JSON back from Twitter
+                            $.ajax({
+                                type: "POST",
+                                dataType: "json",
+                                url: tweetMachine.settings.backendScript,
+                                data: {
+                                    action: 'tweetmachine_backend',
+                                    endpoint: tweetMachine.settings.endpoint,
+                                    queryParams: queryParams
+                                },
+                                success: function (tweets) {
+                                    var tweetsDisplayed;
+                                
 
                                 // If we got a response from Twitter
                                 if ( tweets[0] ) {
@@ -298,8 +315,9 @@
 									}
 									tweetMachine.callback(tweets, tweetsDisplayed); 
 								}	
-							});
-						}
+							}
+						});
+                        }
                         /* TODO: Implement an "x new Tweets, click to refresh" link if auto refresh is turned off
                         else {
                         }
