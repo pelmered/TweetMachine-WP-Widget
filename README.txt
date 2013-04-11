@@ -68,8 +68,6 @@ For latest documentation, see the [jQuery Tweet Machine GitHub page](https://git
 * [Bugfix] Various small bugfixes
 * Updated Twitter OAuth client
 
-
-
 = 1.0 =
 * Initial version
 

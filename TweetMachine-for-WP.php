@@ -1,5 +1,4 @@
 <?php
-
 /**
   Plugin Name: TweetMachine for WP
   Plugin URI: http://wordpress.org/extend/plugins/tweetmachine-wp-widget/
