@@ -2,9 +2,9 @@
 
 /**
   Plugin Name: TweetMachine for WP
-  Plugin URI: http://wordpress.org/extend/plugins/tweetmachine-for-wp/
-  Description: Adds a Live Twitter Widget usning jquery-tweetMachine
-  Version: 1.0.1
+  Plugin URI: http://wordpress.org/extend/plugins/tweetmachine-wp-widget/
+  Description: Adds a Live Twitter Widget usning jQuery-tweetMachine
+  Version: 1.0.2
   Author: Peter Elmered
   Author URI: http://elmered.com
   Text Domain: tweetMachine-wp
@@ -63,6 +63,8 @@ class TweetMachineWidget
         // Register site styles and scripts
         add_action('wp_enqueue_scripts', array($this, 'register_styles'));
         add_action('wp_enqueue_scripts', array($this, 'register_scripts'));
+        
+        $this->register_backend();
 
         if (is_admin())
         {
@@ -296,7 +298,8 @@ class TweetMachineWidget
         }
         
         $data = array(
-            'tmBackend' => TWEETMACHINE_BASE_URL.'TweetMachineBackend.php',
+            //'tmBackend' => TWEETMACHINE_BASE_URL.'TweetMachineBackend.php',
+            'tmBackend' => admin_url( 'admin-ajax.php' ),
             'tmQuery'   => stripcslashes($this->_config['tweetMachine-twitter-query']),
             'tmFilter'   =>  stripcslashes($this->_config['tweetMachine-tweet-filter']),
             'tmCount'   =>  $this->_config['tweetMachine-tweet-count'],
@@ -315,6 +318,29 @@ class TweetMachineWidget
         
         wp_localize_script('tweetMachine-widget-script', 'tweetMachineData', $data);  
             
+    }
+    
+    
+    /**
+     * 
+     */
+    public function register_backend()
+    {
+        add_action('wp_ajax_tweetmachine_backend', array($this, 'ajax_backend'));
+        add_action('wp_ajax_nopriv_tweetmachine_backend', array($this, 'ajax_backend'));
+        
+    }
+    
+    /**
+     * 
+     */
+    public function ajax_backend()
+    {    
+        
+        $config = $this->_config;
+        require 'TweetMachineBackend.php';
+        
+        die();
     }
 
     

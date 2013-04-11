@@ -4,10 +4,9 @@
  * Admin page
  */
 
-print_r($tweetmachine_options);
 ?>
-<div id="wp-pjax-admin" class="wrap">
-    <h2><?php _e('WP PJAX Settings'); ?></h2>
+<div id="tweetmachine-widget-admin" class="wrap">
+    <h2><?php _e('Tweet Machine Widget Settings'); ?></h2>
 
     <form method="post" action=""><?php wp_nonce_field('update-options'); ?>
         
@@ -63,7 +62,7 @@ Due to Twitters new API and the deprication of their old it is now required to a
         
     <h2><?php _e('Options', TWEETMACHINE_TEXT_DOMAIN); ?></h2>
     
-    <div id="pjax-selectors" class="postbox ">
+    <div id="tweetmachine-widget-settings" class="postbox ">
         <div class="handlediv" title="Click to toggle"><br></div>
         <h3 class="hndle"><span><?php _e('Settings', TWEETMACHINE_TEXT_DOMAIN); ?></span></h3><div class="inside">        
             <p></p>
@@ -116,7 +115,7 @@ Due to Twitters new API and the deprication of their old it is now required to a
         </div>
     </div>
     
-    <div id="pjax-selectors" class="postbox ">
+    <div id="tweetmachine-widget-customize" class="postbox ">
         <div class="handlediv" title="Click to toggle"><br></div>
         <h3 class="hndle"><span><?php _e('Customize', TWEETMACHINE_TEXT_DOMAIN); ?></span></h3><div class="inside">        
             <p></p>
@@ -147,20 +146,23 @@ Due to Twitters new API and the deprication of their old it is now required to a
                     <tr valign="top">
                         <th scope="row"><?php _e('Custom markup:', TWEETMACHINE_TEXT_DOMAIN); ?></th>
                         <td>
-                            <textarea name="tweetMachine-custom-format" id="tweetMachine-custom-format" cols="70" rows="6" ><?php echo $tweetmachine_options['tweetMachine-custom-format']; ?></textarea>
+                            <textarea name="tweetMachine-custom-format" id="tweetMachine-custom-format" cols="70" rows="6" ><?php echo stripslashes($tweetmachine_options['tweetMachine-custom-format']); ?></textarea>
 
                             <p class="description"><?php _e('Customize the markup for the Tweet feed. Leave empty to use default.', TWEETMACHINE_TEXT_DOMAIN); ?></p>
                             <p class="description">
                                 <?php _e('Default markup:', TWEETMACHINE_TEXT_DOMAIN); ?><br />
                                 <pre>
-<?php echo htmlspecialchars("<li class='tweet'>
+<?php echo htmlspecialchars(
+"<li class='tweet'>
     <img class='avatar' src=''/>
-    <div class='meta top'>
-        <a href='' class='username'></a>
-    </div>
-    <p class='content'></p>
-    <div class='meta bottom'>
-        <a href='' class='time'></a>
+    <div class='tweet-container'>
+        <div class='meta top'>
+            <a href='' class='username'></a>
+        </div>
+        <p class='content'></p>
+        <div class='meta bottom'>
+            <a href='' class='time'></a>
+        </div>
     </div>
 </li>"); ?>
                                 </pre>
